@@ -15,6 +15,7 @@ namespace TestProject.Chap03
 
         [DataTestMethod]
         [DataRow(80, true, DisplayName="合格点を大きく上回る場合はtrueを返す")]
+        [DataRow(59, false, DisplayName="合格点を下回る場合はfalseを返す")]
         public void Return_PassOrFaled(int score, bool expected)
         {
             var result = scoreservice!.IsPassed(score);

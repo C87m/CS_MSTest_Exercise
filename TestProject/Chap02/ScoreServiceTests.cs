@@ -14,5 +14,12 @@ public class ScoreServiceTests
         Assert.IsTrue(result);
     }
 
-    // テストケース
+    [TestMethod("合格点を下回る場合はfalseを返す")]
+    public void Returnfalse_WhenUnderScore_60()
+    {
+        ScoreService scoreservice = new();
+        int score = 59;
+        var result = scoreservice.IsPassed(score);
+        Assert.IsFalse(result);
+    }
 }

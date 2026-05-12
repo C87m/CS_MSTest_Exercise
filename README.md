@@ -1,5 +1,16 @@
 # CS_MSTest_Exercise
 
+## Coverage Gutters
+```dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults```
+
+## ReportGenerator
+```bash
+reportgenerator \
+  -reports:"./TestResults/<GUID>/coverage.cobertura.xml" \
+  -targetdir:"./TestResults/coveragereport" \
+  -reporttypes:Html
+```
+
 ## Assert
 Assert.AreEqual(expected, actual) 期待値と実際の値が等しいか 計算結果、戻り値の確認  
 Assert.AreNotEqual(notExpected, actual) 値が等しくないこと 異なる結果になることを確認  
