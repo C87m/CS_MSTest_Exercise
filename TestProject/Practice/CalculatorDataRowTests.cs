@@ -104,4 +104,20 @@ public class CalculatorDataRowTests
         // テスト対象のメソッドを実行する
         calculator!.Div(x, y);
     }
+
+    [DataTestMethod]
+    [DataRow(10,    0,    DisplayName ="テストケース5:10 ÷ 0")]
+    [DataRow(20,    0,    DisplayName ="テストケース6:20 ÷ 0")]  
+    /// <summary>
+    /// CalculatのDivメソッドの単体テスト
+    /// ArgumentExceptionがスローされることと、エラーメッセージが正しいことをテストする
+    /// </summary>
+    /// <param name="x">[DataRow]属性の先頭の値</param>
+    /// <param name="y">[DataRow]属性の2番目の値</param>
+    public void Div_ShouldThrowArgumentException_WhenInvalidInput(int x, int y)
+    {
+        var exception = Assert.ThrowsException<ArgumentException>(
+            () => calculator!.Div(x, y));
+        Assert.AreEqual("ゼロ除算はできません。", exception.Message);
+    }
 }
